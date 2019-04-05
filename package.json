@@ -1,0 +1,29 @@
+{
+  "name": "express-api",
+  "version": "0.0.1",
+  "description": "Express api made to understand express folder structure",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --timeout 10000 --recursive",
+    "dev": "nodemon index.js",
+    "start": "node index.js",
+    "watch-test": "mocha --timeout 10000 --recursive --watch"
+  },
+  "author": "@laytanl",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "dotenv": "^7.0.0",
+    "express": "^4.16.4",
+    "morgan": "^1.9.1",
+    "mysql2": "^1.6.5",
+    "sequelize": "^5.2.8"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.2.1",
+    "mocha": "^6.0.2",
+    "nodemon": "^1.18.10"
+  }
+}
