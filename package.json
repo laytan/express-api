@@ -2,8 +2,11 @@
   "name": "express-api",
   "version": "0.0.1",
   "description": "Express api made to understand express folder structure",
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "scripts": {
+    "prebuild": "tslint -c tslint.json -p tsconfig.json --fix",
+    "build": "tsc",
+    "prestart": "npm run build",
     "test": "mocha --timeout 10000 --recursive",
     "dev": "nodemon .",
     "start": "node .",
@@ -25,6 +28,7 @@
     "chai-http": "^4.2.1",
     "mocha": "^6.0.2",
     "nodemon": "^1.18.10",
+    "tslint": "^5.15.0",
     "typescript": "^3.4.1"
   }
 }

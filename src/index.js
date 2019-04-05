@@ -13,10 +13,10 @@ const utils = require("./utils/utils");
 const routes = require("./routes/routes");
 
 // Require own middleware
-const middleware = require('./middleware/middleware');
+const middleware = require("./middleware/middleware");
 
 // Connect to the database
-require('./database/database');
+require("./database/database");
 
 // Initialize app
 utils.logRed("Initializing app");
@@ -24,7 +24,7 @@ const app = express();
 
 utils.logRed("Using dependent middleware");
 // TODO: Make this not hard-coded
-app.use(logger('dev'));
+app.use(logger("dev"));
 
 app.use(
     cors({
@@ -49,11 +49,11 @@ app.use(middleware.errorHandler);
 
 // Start listening
 utils.logRed("Trying to listen");
-//The port to listen on, process.env.PORT gets set by your hosting
+// The port to listen on, process.env.PORT gets set by your hosting
 const port = process.env.PORT || 1234;
 // Removes "eardinuse" error when testing
 if (!module.parent) {
-    //Start listening
+    // Start listening
     app.listen(port, () => {
         console.log(`listening on ${port}`);
     });
