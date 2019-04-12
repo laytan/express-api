@@ -6,6 +6,10 @@ import App from "./app";
  */
 import HelloWorldController from "./controllers/helloWorldController";
 
+// Initialize dotenv
+import * as dotenv from "dotenv";
+dotenv.config();
+
 /**
  * Initializes the app, passing in All the controllers and a port to listen on
  */

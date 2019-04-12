@@ -2,6 +2,7 @@ import * as bodyParser from "body-parser";
 import express from "express";
 import http from "http";
 import Controller from "./controllers/controller";
+import dbConnect from "./database";
 
 /**
  * The entry point of our application, everything gets loaded in here
@@ -10,6 +11,7 @@ export default class App {
     // Expose the server for testing
     public server: http.Server;
 
+    private db: any;
     private app: express.Application;
     private port: number;
 
@@ -21,10 +23,19 @@ export default class App {
     constructor(controllers: [Controller], port: number) {
         this.app = express();
         this.port = port;
+
+        // Connect to the database
+        this.db = dbConnect();
+
         this.initializeMiddleware();
         this.initializeControllers(controllers);
 
         this.listen();
+    }
+
+    // Get the database connection
+    get _db() {
+        return this.db;
     }
 
     /**
