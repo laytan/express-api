@@ -7,7 +7,6 @@
     "prebuild": "tslint -c tslint.json -p tsconfig.json --fix && npm run test",
     "build": "tsc",
     "dev": "nodemon .",
-    "prestart": "npm run test",
     "start": "node -r ts-node/register ./src/index.ts",
     "test": "mocha --timeout 10000 --recursive --require ts-node/register test/**/*.ts",
     "watch": "mocha --timeout 10000 --recursive --watch --watch-extensions ts --require ts-node/register test/**/*.ts"
