@@ -12,7 +12,7 @@
     "test": "mocha --timeout 10000 --recursive --require ts-node/register test/**/*.ts",
     "watch": "mocha --timeout 10000 --recursive --watch --require ts-node/register test/**/*.ts"
   },
-  "author": "@laytanl",
+  "author": "@laytan",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",
