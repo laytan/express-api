@@ -4,7 +4,7 @@ import App from "./app";
 /**
  * Controller imports
  */
-import HelloWorldController from "./controllers/helloWorldController";
+import TodosController from "./controllers/todosController";
 
 // Initialize dotenv
 import * as dotenv from "dotenv";
@@ -15,7 +15,7 @@ dotenv.config();
  */
 const app = new App(
     [
-        new HelloWorldController(),
+        new TodosController(),
     ],
     1234
 );

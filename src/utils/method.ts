@@ -2,4 +2,6 @@
 export enum Method {
     "get",
     "post",
+    "put",
+    "delete",
 }

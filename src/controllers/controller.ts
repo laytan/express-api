@@ -35,12 +35,19 @@ export default abstract class Controller {
      * @param fn The function to call when this route is hit
      */
     protected route(method: Method, addedPath: string, fn: any) {
+        const path = this.path + addedPath;
         switch (method) {
             case Method.get:
-                this.router.get(this.path + addedPath, fn);
+                this.router.get(path, fn);
                 break;
             case Method.post:
-                this.router.post(this.path + addedPath, fn);
+                this.router.post(path, fn);
+                break;
+            case Method.put:
+                this.router.put(path, fn);
+                break;
+            case Method.delete:
+                this.router.delete(path, fn);
                 break;
         }
     }

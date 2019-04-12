@@ -20,7 +20,7 @@ export default class App {
      * @param controllers An array of controllers to initialize
      * @param port The port to listen on
      */
-    constructor(controllers: [Controller], port: number) {
+    constructor(controllers: Controller[], port: number) {
         this.app = express();
         this.port = port;
 
@@ -60,7 +60,7 @@ export default class App {
      * Initializes all controllers
      * @param controllers An array of controllers to initialize
      */
-    private initializeControllers(controllers: [Controller]) {
+    private initializeControllers(controllers: Controller[]) {
         controllers.forEach((controller) => {
             this.app.use("/", controller._router);
         });
