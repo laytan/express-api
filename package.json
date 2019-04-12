@@ -4,31 +4,44 @@
   "description": "Express api made to understand express folder structure",
   "main": "dist/index.js",
   "scripts": {
-    "prebuild": "tslint -c tslint.json -p tsconfig.json --fix",
+    "prebuild": "tslint -c tslint.json -p tsconfig.json --fix && npm run test",
     "build": "tsc",
-    "prestart": "npm run build",
-    "test": "mocha --timeout 10000 --recursive",
     "dev": "nodemon .",
-    "start": "node .",
-    "watch-test": "mocha --timeout 10000 --recursive --watch"
+    "prestart": "npm run test",
+    "start": "node -r ts-node/register ./src/index.ts",
+    "test": "mocha --timeout 10000 --recursive --require ts-node/register test/**/*.ts",
+    "watch": "mocha --timeout 10000 --recursive --watch --require ts-node/register test/**/*.ts"
   },
   "author": "@laytanl",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",
-    "cors": "^2.8.5",
-    "dotenv": "^7.0.0",
-    "express": "^4.16.4",
-    "morgan": "^1.9.1",
-    "mysql2": "^1.6.5",
-    "sequelize": "^5.2.8"
+    "express": "^4.16.4"
   },
   "devDependencies": {
+    "@types/chai-http": "^4.2.0",
+    "@types/express": "^4.16.1",
+    "@types/mocha": "^5.2.6",
+    "@types/node": "^11.13.4",
     "chai": "^4.2.0",
     "chai-http": "^4.2.1",
-    "mocha": "^6.0.2",
-    "nodemon": "^1.18.10",
+    "mocha": "^6.1.3",
+    "nodemon": "^1.18.11",
+    "ts-node": "^8.0.3",
     "tslint": "^5.15.0",
-    "typescript": "^3.4.1"
+    "typescript": "^3.4.3"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "**/*.test.ts",
+      "**/*.spec.ts",
+      ".git",
+      "node_modules"
+    ],
+    "watch": [
+      "src"
+    ],
+    "exec": "npm start",
+    "ext": "ts"
   }
 }
