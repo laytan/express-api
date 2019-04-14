@@ -1,6 +1,8 @@
 import * as bodyParser from "body-parser";
+import cors from "cors";
 import express from "express";
 import http from "http";
+import morgan from "morgan";
 import Controller from "./controllers/controller";
 import dbConnect from "./database";
 
@@ -53,6 +55,12 @@ export default class App {
      * Initialize all the middleware here
      */
     private initializeMiddleware() {
+        this.app.use(morgan("dev"));
+        this.app.use(
+            cors({
+                origin: process.env.ALLOWED_ORIGIN,
+            })
+        );
         this.app.use(bodyParser.json());
     }
 

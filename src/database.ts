@@ -8,6 +8,7 @@ export default function(): any {
                 database: process.env.DATABASE_NAME,
                 dialect: "mysql",
                 host: process.env.DATABASE_HOST,
+                logging: false,
                 modelPaths: [__dirname + "/models"],
                 password: process.env.DATABASE_PASSWORD,
                 username: process.env.DATABASE_USERNAME,
